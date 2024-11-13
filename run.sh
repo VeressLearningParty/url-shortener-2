@@ -17,8 +17,20 @@ docker rm --volumes url-shortener-2-backend
 MSYS_NO_PATHCONV=1 docker run \
     --name url-shortener-2-backend \
     --network url-shortener-2-network \
-    --expose 9876 -p 9876:3000 \
+    --expose 9876 -p 9876:9876 \
     -v "$(pwd)/backend:/app" \
     -w /app \
     -d node:18 \
-    sh -c 'npm install && npm run start'
+    sh -c 'npm install && npm run start'    
+
+docker stop url-shortener-2-frontend
+docker rm --volumes url-shortener-2-frontend
+
+MSYS_NO_PATHCONV=1 docker run \
+    --name url-shortener-2-frontend \
+    --network url-shortener-2-network \
+    --expose 3000 -p 3000:3000 \
+    -v "$(pwd)/frontend:/app" \
+    -w /app \
+    -d node:18 \
+    sh -c 'npm install && npm run start'    

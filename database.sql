@@ -15,23 +15,23 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 
--- Дамп структуры базы данных db
+-- Дамп структуры базы данных database
 CREATE DATABASE IF NOT EXISTS `database` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `database`;
 
--- Дамп структуры для таблица db.shorts
+-- Дамп структуры для таблица database.table
 CREATE TABLE IF NOT EXISTS `table` (
   `short` varchar(8) NOT NULL DEFAULT '',
-  `full-url` longtext,
+  `fullurl` longtext,
   PRIMARY KEY (`short`),
   UNIQUE KEY `short` (`short`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='table for shortener-2';
 
 LOCK TABLES `table` WRITE;
-/*!40000 ALTER TABLE `shorts` DISABLE KEYS */;
-INSERT INTO `database`.`table` (`short`, `full-url`) VALUES ('b8b8v9v9', 'www.instagram.com');
-INSERT INTO `database`.`table` (`short`, `full-url`) VALUES ('g5g5h6h6', 'www.twitch.com');
-/*!40000 ALTER TABLE `shorts` ENABLE KEYS */;
+/*!40000 ALTER TABLE `table` DISABLE KEYS */;
+INSERT INTO `database`.`table` (`short`, `fullurl`) VALUES ('b8b8v9v9', 'www.instagram.com');
+INSERT INTO `database`.`table` (`short`, `fullurl`) VALUES ('g5g5h6h6', 'www.twitch.com');
+/*!40000 ALTER TABLE `table` ENABLE KEYS */;
 UNLOCK TABLES;
 
 

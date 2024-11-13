@@ -1,5 +1,5 @@
 {
-  "name": "shortener-2-backend",
+  "name": "url-shortener-2-frontend",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,7 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.21.1",
-    "mysql2": "^3.11.4"
+    "express": "^4.21.1"
   }
 }
