@@ -1,22 +1,14 @@
 import express  from "express"
-import Database from "./db/db.js";
+import Shorts from "./dao/dao.js"
+import router from "./routes/routes.js"
 
 const app = express()
 const port = 9876
 
-/*app.get('/', (req, res) => {
-  res.send('Hello World!')
-})*/
-
-/*app.get('/', (req, res) => {
-  Database.getAll()
-      .then(result => {
-        res.send(JSON.stringify(result));
-      })
-})*/
+app.use(express.json());
 
 app.get('/', (req, res) => {
-  Database.getAll()
+  Shorts.getAll()
     .then((result) => {
       res.send(result);
     })
@@ -25,7 +17,9 @@ app.get('/', (req, res) => {
     })
 })
 
+app.use(router);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
+

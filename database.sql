@@ -19,19 +19,19 @@
 CREATE DATABASE IF NOT EXISTS `database` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `database`;
 
--- Дамп структуры для таблица database.table
-CREATE TABLE IF NOT EXISTS `table` (
+-- Дамп структуры для таблица database.tableurl
+CREATE TABLE IF NOT EXISTS `tableurl` (
   `short` varchar(8) NOT NULL DEFAULT '',
   `fullurl` longtext,
   PRIMARY KEY (`short`),
   UNIQUE KEY `short` (`short`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='table for shortener-2';
 
-LOCK TABLES `table` WRITE;
-/*!40000 ALTER TABLE `table` DISABLE KEYS */;
-INSERT INTO `database`.`table` (`short`, `fullurl`) VALUES ('b8b8v9v9', 'www.instagram.com');
-INSERT INTO `database`.`table` (`short`, `fullurl`) VALUES ('g5g5h6h6', 'www.twitch.com');
-/*!40000 ALTER TABLE `table` ENABLE KEYS */;
+LOCK TABLES `tableurl` WRITE;
+/*!40000 ALTER TABLE `tableurl` DISABLE KEYS */;
+INSERT INTO `database`.`tableurl` (`short`, `fullurl`) VALUES ('b8b8v9v9', 'https://www.instagram.com');
+INSERT INTO `database`.`tableurl` (`short`, `fullurl`) VALUES ('g5g5h6h6', 'https://www.twitch.com');
+/*!40000 ALTER TABLE `tableurl` ENABLE KEYS */;
 UNLOCK TABLES;
 
 

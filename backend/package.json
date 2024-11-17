@@ -10,7 +10,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "crypto-js": "^4.2.0",
     "express": "^4.21.1",
-    "mysql2": "^3.11.4"
+    "mysql2": "^3.11.4",
+    "parse-request": "^6.0.3"
   }
 }

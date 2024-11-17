@@ -29,13 +29,13 @@ export default class Database {
         
 
     static getAll(){
-        return this.query("SELECT * FROM `table`");
+        return this.query(`SELECT * FROM ${tableName}`);
     };
-    /*
+    
     static get(tableName, filterField, filterValue) {
         return this.query(`SELECT * FROM ${tableName} WHERE ${filterField} = '${this.renderValueForSQL(filterValue)}';`);
     }
-    /*
+    
     static insert(tableName, values) {
         let columns = Object.keys(values).join(',');
         let renderedValues = Object
@@ -59,7 +59,7 @@ export default class Database {
         return this.query(`DELETE FROM ${tableName} WHERE ${idField} = '${this.renderValueForSQL(idValue)}';`);
     }
 
-    /*static renderValueForSQL(value) {
+    static renderValueForSQL(value) {
         return value ? `'${value}'` : `NULL`;
-    }*/
+    }
 }
