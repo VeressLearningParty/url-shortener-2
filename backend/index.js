@@ -3,7 +3,7 @@ import Shorts from "./dao/dao.js"
 import router from "./routes/routes.js"
 
 const app = express()
-const port = 9876
+const port = 3000
 
 app.use(express.json());
 
@@ -17,7 +17,7 @@ app.get('/', (req, res) => {
     })
 })
 
-app.use(router);
+app.use('/api', router);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)

@@ -3,32 +3,20 @@ import Shorts from "../dao/dao.js";
 
 const router = express.Router();
 
-router.get('/api/short', (req, res) => {
-    Shorts.getAll()
-        .then((result) => {
-            res.send(result)
-        })
-        .catch((error) => {
-            res.send(error)
-        })
-});
-
-router.post('/api/short', (req, res) =>{
+router.post('/short', (req, res) =>{
     let NewUrl = new Shorts();
-    NewUrl.fullurl = req.body.fullurl;
+    NewUrl.url = req.body.url;
     NewUrl.insert()
     .then((result) => {
+        console.log(NewUrl)
         res.send(JSON.stringify(NewUrl.short))
-        console.log(result)
     }) 
 
 });
 
-router.get('/api/get', (req, res) => {
-    Shorts.get(req.body.short)
-        .then((result) => {
-            res.send(result)
-        })
-});
+router.get("/get/:shortId", async (req, res) => {
+    let short = await Shorts.get(req.params.shortId);
+    res.json({url: short.url});
+})
 
 export default router;

@@ -1,0 +1,21 @@
+body {
+    font-size: 50px;
+}
+
+#input-url{
+    font-size: 35px;
+    font-family: cursive;
+    width: 255px;
+    height: 50px;
+    background: #ffdcbb;
+    border-radius: 8px;
+}
+
+body button{
+    background-color: #292929;
+    border-color: #ff9900;
+    color: #ffffff;
+    border-radius: 10px;
+    font-size: 20px;
+    font-family: cursive;
+}

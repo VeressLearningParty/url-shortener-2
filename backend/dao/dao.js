@@ -4,19 +4,19 @@ import crypto from "crypto"
 export default class Shorts {
     static tableName = `tableurl`;
     short;
-    fullurl;
+    url;
 
     constructor(raw) {
         if (raw) {
             this.short = raw.short
-            this.fullurl = raw.fullurl
+            this.url = raw.url
         } else {
             this.short = Shorts.generateShort()
         }
     }
 
     static async get(short) {
-            let result = await Database.query(`SELECT fullurl FROM ${Shorts.tableName} WHERE short = "${short}";`);
+            let result = await Database.query(`SELECT url FROM ${Shorts.tableName} WHERE short = "${short}";`);
                 return (await result);
     }
 
@@ -31,7 +31,7 @@ export default class Shorts {
                 .then(results => resolve(this))
                 .catch(error => reject(error))
         })
-        //return this.query(`INSERT INTO ${Shorts.tableName} (short, fullurl) VALUES (${Shorts.short}, ${Shorts.fullurl});`);
+        //return this.query(`INSERT INTO ${Shorts.tableName} (short, url) VALUES (${Shorts.short}, ${Shorts.url});`);
     }
 
     update() {
@@ -51,7 +51,6 @@ export default class Shorts {
     }
 
     static generateShort() {
-        let result = crypto.randomBytes(4).toString('hex');
-        return (result);
+        return crypto.randomBytes(4).toString('hex');
     }
 }
